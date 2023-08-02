@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .controller {
+        @apply flex items-center gap-2;
+    }
+
+    .controller > label {
+        @apply text-neutral-300 font-bold;
+    }
+
+    .controller > input {
+        @apply w-10 px-2 py-1 text-right rounded bg-neutral-800 text-neutral-300 font-medium focus:outline-none appearance-none;
+    }
+
+    .controller > select {
+        @apply px-2 py-1 pr-8 rounded bg-neutral-800 hover:bg-neutral-700 text-neutral-300 font-medium cursor-pointer focus:outline-none appearance-none;
+        background-image: url("../../assets/dd-arrow.png");
+        background-repeat: no-repeat;
+        background-position: right 0.5rem center;
+        background-size: 0.75rem;
+    }
+
+    .controller > input::-webkit-outer-spin-button,
+    .controller > input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    .controller > input[type="number"] {
+        -moz-appearance: textfield;
+    }
+
+    .controller > .btnModifier {
+        @apply flex gap-1;
+    }
+
+    .controller button.increaseBtn,
+    .controller button.decreaseBtn {
+        @apply w-7 aspect-square rounded-full bg-neutral-700 hover:bg-neutral-800 active:bg-neutral-600 flex items-center justify-center text-xl text-white;
+    }
+}
