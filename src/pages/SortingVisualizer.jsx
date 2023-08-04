@@ -2,19 +2,13 @@ import { useEffect, useState } from "react";
 import ControlBar from "../components/bars/ControlBar";
 import { generateRandomArray } from "../utils/ArrayModifiers";
 import Poles from "../components/sections/Poles";
-import { bubbleSort, insertionSort, selectionSort } from "../utils/SortingHandlers";
-
-const sortingAlgorithms = {
-    "bubble-sort": bubbleSort,
-    "insertion-sort": insertionSort,
-    "selection-sort": selectionSort,
-};
+import sortingAlgorithms from "../utils/SortingHandlers";
 
 const defaultConfig = {
     length: 50,
     max: 100,
     speed: 1,
-    algorithm: "bubble-sort",
+    algorithm: Object.keys(sortingAlgorithms)[0],
 };
 
 function SortingVisualizer() {

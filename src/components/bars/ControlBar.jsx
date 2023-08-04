@@ -1,6 +1,13 @@
 import "./ControlBar.css";
 import { Icon } from "@iconify/react";
 import ColorBtn from "../buttons/ColorBtn";
+import sortingAlgorithms from "../../utils/SortingHandlers";
+import { hyphenCaseToCapitalized } from "../../utils/Helpers";
+
+const algorithms = Object.keys(sortingAlgorithms).map((identifier) => ({
+    name: hyphenCaseToCapitalized(identifier),
+    id: identifier,
+}));
 
 function ControlBar({ config, running, setConfig, randomizeArray, startSorting }) {
     const handleChange = (event) => {
@@ -11,9 +18,9 @@ function ControlBar({ config, running, setConfig, randomizeArray, startSorting }
     };
 
     return (
-        <section className="w-full bg-neutral-900 p-2">
-            <div className="max-w-screen-xl mx-auto flex items-center gap-2">
-                <div className="flex items-center gap-8">
+        <section className="w-full bg-neutral-900 p-2 border-b border-neutral-700">
+            <div className="max-w-screen-lg mx-auto flex items-center flex-wrap justify-between gap-x-8 gap-y-4">
+                <div className="flex items-center gap-x-8 gap-y-4 flex-wrap">
                     <div className="controller">
                         <label htmlFor="length">Size:</label>
                         <input
@@ -41,13 +48,17 @@ function ControlBar({ config, running, setConfig, randomizeArray, startSorting }
                             value={config.algorithm}
                             onChange={handleChange}
                         >
-                            <option value="bubble-sort">Bubble Sort</option>
-                            <option value="insertion-sort">Insertion Sort</option>
-                            <option value="selection-sort">Selection Sort</option>
+                            {algorithms.map((algorithm, idx) => {
+                                return (
+                                    <option value={algorithm.id} key={`algorithm-${idx}`}>
+                                        {algorithm.name}
+                                    </option>
+                                );
+                            })}
                         </select>
                     </div>
                 </div>
-                <div className="ml-auto flex items-center gap-2">
+                <div className="flex items-center gap-2">
                     <ColorBtn
                         className="bg-teal-500 hover:bg-teal-400 active:bg-teal-600 text-neutral-900"
                         onClick={randomizeArray}
