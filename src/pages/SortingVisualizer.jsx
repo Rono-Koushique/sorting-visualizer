@@ -40,7 +40,7 @@ function SortingVisualizer() {
     };
 
     return (
-        <main className="min-h-screen flex flex-col">
+        <main className="h-screen flex flex-col">
             <ControlBar
                 config={config}
                 running={running}

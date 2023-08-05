@@ -4,15 +4,15 @@
 
 @layer components {
     .controller {
-        @apply flex items-center gap-2;
+        @apply flex items-center gap-2 w-full md:w-fit;
     }
 
     .controller > label {
-        @apply text-neutral-300 font-bold;
+        @apply text-neutral-300 font-bold mr-auto;
     }
 
     .controller > input {
-        @apply w-10 px-2 py-1 text-right rounded bg-neutral-800 text-neutral-300 font-medium focus:outline-none appearance-none;
+        @apply w-12 px-2 py-1 text-right rounded bg-neutral-800 text-neutral-300 font-medium focus:outline-none appearance-none;
     }
 
     .controller > select {

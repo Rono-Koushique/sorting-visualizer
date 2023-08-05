@@ -18,9 +18,9 @@ function ControlBar({ config, running, setConfig, randomizeArray, startSorting }
     };
 
     return (
-        <section className="w-full bg-neutral-900 p-2 border-b border-neutral-700">
+        <section className="w-full bg-neutral-900 p-2 border-b border-neutral-700 order-2 md:order-first">
             <div className="max-w-screen-lg mx-auto flex items-center flex-wrap justify-between gap-x-8 gap-y-4">
-                <div className="flex items-center gap-x-8 gap-y-4 flex-wrap">
+                <div className="flex flex-col w-full md:w-fit md:flex-row items-center gap-x-8 gap-y-4 md:flex-wrap">
                     <div className="controller">
                         <label htmlFor="length">Size:</label>
                         <input
@@ -58,7 +58,7 @@ function ControlBar({ config, running, setConfig, randomizeArray, startSorting }
                         </select>
                     </div>
                 </div>
-                <div className="flex items-center gap-2">
+                <div className="ml-auto flex items-center gap-2">
                     <ColorBtn
                         className="bg-teal-500 hover:bg-teal-400 active:bg-teal-600 text-neutral-900"
                         onClick={randomizeArray}
